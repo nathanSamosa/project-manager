@@ -1,0 +1,40 @@
+{
+  "name": "project-team-fullstack-free-choice",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.17.5",
+    "babel": "^6.23.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0"
+  },
+  "scripts": {
+    "devstart": "concurrently \"react-scripts start\" \"nodemon src/server/index.js\"",
+    "start": "node src/server/index.js",
+    "build": "react-scripts build",
+    "lint": "eslint src",
+    "test": "jasmine",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-plugin-react": "^7.29.3",
+    "jasmine": "^4.0.2",
+    "nodemon": "^2.0.15"
+  }
+}
