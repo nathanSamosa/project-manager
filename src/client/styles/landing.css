@@ -1,0 +1,117 @@
+.landing {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.landing-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('/public/planning.jpg');
+    background-size: cover;
+    filter: blur(2px);
+    transform: scale(1.01);
+    z-index: 1;
+}
+
+.landing-background::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: var(--clr-black);
+    opacity: 0.65;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 60rem;
+    display: grid;
+    grid-template-rows: 4rem 1fr;
+    padding: 1rem;
+    color: white;
+    z-index: 2;
+}
+
+.landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem
+}
+
+.landing h1 {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--ff-secondary);
+    font-weight: 200;
+    font-style: italic;
+    text-transform: lowercase;
+}
+
+.landing h1 img {
+    height: 40px;
+    filter: invert(77%) sepia(40%) saturate(7192%) hue-rotate(179deg) brightness(101%) contrast(92%);
+}
+
+.landing nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
+    overflow: visible;
+    font-weight: 300;
+}
+
+.landing a:hover {
+    color: var(--clr-primary1)
+}
+
+.landing .button {
+    padding: 10px 20px;
+    border: 1px solid var(--clr-grey2);
+    border-radius: 5px;
+}
+
+.landing .register{
+    background-color: var(--clr-primary2);
+    border: none;
+}
+
+.landing .register:hover{
+    background-color: var(--clr-primary1);
+    color: var(--clr-white)
+}
+
+.landing .login:hover {
+    border: 1px solid var(--clr-primary1);
+}
+
+.landing .button:hover {
+    transform: translateY(1px)
+}
+
+.landing-body {
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing h2 {
+    font-weight: 300;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.landing-body .button {
+    text-transform: uppercase;
+    padding: 25px 50px;
+}
