@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
 
@@ -15,20 +15,9 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: npm run lint
+      - run: ./node_modules/.bin/eslint src
 
-  test:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-      - run: npm ci
-      - run: npm run test
-
-  deploy:
+  notify:
     needs: test
     runs-on: ubuntu-latest
     steps:
