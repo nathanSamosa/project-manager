@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
 
@@ -36,5 +36,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "project-team-fullstack" #Must be unique in Heroku
-          heroku_email: "edward@boolean.co.uk"
+          heroku_app_name: "quinnsihota-project-manager" #Must be unique in Heroku
+          heroku_email: "nathan.quinnsihota@gmail.com"
