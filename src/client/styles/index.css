@@ -3,15 +3,27 @@
 
 :root {
     --clr-white: #FEFEFE;
+    --clr-grey3: #E5E5E8;
     --clr-grey2: #989897;
-    --clr-grey1: #333333;
+    --clr-grey1: #75797A;
     --clr-black: #000;
     --clr-secondary: #434458;
     --clr-primary2: #3FA9F5;
     --clr-primary1: #229af0;
+    --clr-red: 255, 0, 0;
 
     --ff-primary: 'Lato';
     --ff-secondary: 'Fira Sans';
+}
+
+.home h2 {
+    padding-top: 5rem;
+    font-size: 3rem;
+    color: rgb(var(--clr-red));
+}
+
+.home h2[data="dim"] {
+    color: rgba(var(--clr-red), 0.5)
 }
 
 * {
@@ -21,4 +33,12 @@
     font-family: var(--ff-primary);
     overflow-x: hidden;
     letter-spacing: .5px;
+}
+
+input:-webkit-autofill {
+  border: none;
+  border-bottom: 1px solid var(--clr-grey2);
+  -webkit-text-fill-color: var(--clr-white);
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

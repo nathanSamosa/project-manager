@@ -1,12 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-// import { UserForm } from './UserForm'
+import { LandingBody } from './LandingBody';
 
 import '../styles/landing.css'
 import logo from '../assets/logo.png'
 
 export const Landing = () => {
+    const [currentForm, setCurrentForm] = useState('');
+
+    const handleClick = form => {
+        console.log(form)
+        setCurrentForm(form)
+    }
 
     return (
         <div className="landing">
@@ -15,16 +20,18 @@ export const Landing = () => {
                 <div className="landing-header">
                     <h1><img src={logo}/>Samosa</h1>
                     <nav>
-                        <Link to="/">Contact</Link>
-                        <Link to="/">Demo</Link>
-                        <Link to="/" className="button login">Sign in</Link>
-                        <Link to="/" className="button register">Create account</Link>
+                        <button onClick={() => handleClick('contact')}>Contact</button>
+                        <button onClick={() => handleClick('demo')}>Demo</button>
+                        <button onClick={() => handleClick('login')} className="button login">Sign in</button>
+                        <button onClick={() => handleClick('register')} className="button button-blue">Create account</button>
                     </nav>
                 </div>
-                <div className="landing-body">
-                    <h2>Create personal project boards and bug trackers in minutes.</h2>
-                    <Link to="/" className="button register">Create your free account here</Link>
-                </div>
+
+                <LandingBody
+                    handleClick={e => handleClick(e)}
+                    currentForm={currentForm}
+                    setCurrentForm={setCurrentForm}
+                />                
             </div>
         </div>
 

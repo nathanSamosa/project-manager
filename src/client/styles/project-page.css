@@ -1,0 +1,19 @@
+.project-page {
+    height: 100%;
+    width: 100vw;
+    background-color: var(--clr-grey3);
+    position: relative;
+}
+
+.project-display {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    overflow: visible;
+    padding: 2rem;
+    padding-left: 14rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
