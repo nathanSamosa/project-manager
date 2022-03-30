@@ -30,6 +30,9 @@ app.use(passport.initialize());
 const userRouter = require('./routers/user');
 app.use('/user', userRouter);
 
+const projectRouter = require('./routers/project');
+app.use('/project', projectRouter);
+
 //ROUTES
 
 app.get('/hello', (req, res) => {

@@ -1,0 +1,159 @@
+.home {
+    height: 100%;
+    width: 100vw;
+    background-color: var(--clr-grey3);
+    position: relative;
+}
+
+.user-app > nav {
+    z-index: 100;
+    pointer-events: auto;
+    height: 100%;
+    background-color: var(--clr-grey1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 12rem;
+}
+
+.user-app h1 {
+    font-family: var(--ff-secondary);
+    color: var(--clr-white);
+    font-size: 1.5rem;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.user-app img {
+    height: 40px;
+}
+
+.user-app .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.user-app > nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-app > nav > div {
+    position: relative;
+    padding: 40px 10px;
+    overflow: visible;
+}
+
+.user-app > nav > div::after {
+    content: '';
+    width: 120px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--clr-grey2);
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.user-app button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-app > nav button:hover {
+    color: var(--clr-primary2);
+    transform: translateY(2px);
+}
+
+.home-display {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    overflow: visible;
+    padding: 2rem;
+    padding-left: 14rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.home-display > button {
+    padding: 10px 60px;
+    border-radius: 5px;
+    background-color: var(--clr-primary2);
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.home-display > button:hover {
+    background-color: var(--clr-primary1);
+    transform: translateY(2px);
+}
+
+.projects-container {
+    max-width: 1600px;
+    overflow: visible;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.project {
+    width: 250px;
+    height: 500px;
+    padding: 20px;
+    background-color: var(--clr-white);
+    display: grid;
+    grid-template-rows: 80px 1fr 80px 50px;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+}
+
+.project > * {
+    height: 100%;
+}
+
+.project > h3 {
+    display: inline-block;
+    font-size: 1.75rem;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    color: var(--clr-black);
+    display: inline-block;
+    word-break: break-word;
+}
+
+.project-button {
+    color: black;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--clr-grey3) !important;
+    border-radius: 10px;
+    transition-duration: 0.25s;
+}
+
+.project-button:hover {
+    transform: translateY(2px);
+    background-color: var(--clr-primary1) !important;
+}

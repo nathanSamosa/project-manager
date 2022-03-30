@@ -4,6 +4,9 @@ const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 const API_URL = {
     USER_GET: `${SERVER_URL}/user/get`,
     USER_LOGIN: `${SERVER_URL}/user/login`,
+    USER_REGISTER: `${SERVER_URL}/user/register`,
+    PROJECT_GET: `${SERVER_URL}/project/`,
+    PROJECT_CREATE: `${SERVER_URL}/project/create`,
 };
 
 const HTTP_METHOD = {
@@ -19,12 +22,21 @@ const LOCAL_STORAGE = {
 };
 
 const STORE_ACTIONS = {
+    REFRESH: 'refresh',
     USER: 'user',
+    PROJECTS: 'projects'
+}
+
+const ROUTES = {
+    LANDING: '/',
+    LOGIN: '/login',
+    REGISTER: '/register'
 }
 
 module.exports = {
     API_URL,
     HTTP_METHOD,
     LOCAL_STORAGE,
-    STORE_ACTIONS
+    STORE_ACTIONS,
+    ROUTES
 };

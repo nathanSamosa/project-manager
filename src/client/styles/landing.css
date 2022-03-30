@@ -23,7 +23,7 @@
     height: 100%;
     width: 100%;
     background-color: var(--clr-black);
-    opacity: 0.65;
+    opacity: 0.75;
 }
 
 .container {
@@ -69,22 +69,36 @@
     font-weight: 300;
 }
 
-.landing a:hover {
+.landing button {
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.landing button:hover {
     color: var(--clr-primary1)
 }
 
-.landing .button {
+.landing .login,
+.landing .button-blue {
     padding: 10px 20px;
     border: 1px solid var(--clr-grey2);
     border-radius: 5px;
 }
 
-.landing .register{
+.landing .login {
+    background-color: transparent;
+}
+
+.landing .button-blue{
     background-color: var(--clr-primary2);
     border: none;
 }
 
-.landing .register:hover{
+.landing .button-blue:hover{
     background-color: var(--clr-primary1);
     color: var(--clr-white)
 }
@@ -98,11 +112,26 @@
 }
 
 .landing-body {
-    display: flex;
+    position: relative;
+}
+
+.hero {
     flex-direction: column;
     gap: 75px;
+    width: 100%;
+    height: 75%;
+}
+
+.landing-body > * {
+    position: absolute;
     align-items: center;
     justify-content: center;
+    display: flex;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 0.25s;
 }
 
 .landing h2 {
@@ -114,4 +143,12 @@
 .landing-body .button {
     text-transform: uppercase;
     padding: 25px 50px;
+}
+
+.landing h1:hover {
+    cursor: default;
+}
+
+.landing * {
+    overflow-y: hidden;
 }
