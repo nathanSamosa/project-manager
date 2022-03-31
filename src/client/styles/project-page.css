@@ -17,3 +17,7 @@
     align-items: center;
     gap: 50px;
 }
+
+.project-display h1 {
+    color: black;
+}

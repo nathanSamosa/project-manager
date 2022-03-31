@@ -58,11 +58,11 @@
     transform: translateX(-50%);
 }
 
-.user-nav {
+.user-nav, .project-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .user-app button {
@@ -74,6 +74,7 @@
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    padding: 10px;
 }
 
 .user-app > nav button:hover {
@@ -156,4 +157,16 @@
 .project-button:hover {
     transform: translateY(2px);
     background-color: var(--clr-primary1) !important;
+}
+
+nav .project-title {
+    display: flex;
+    justify-content: center;
+}
+
+nav .project-title h1 {
+    padding:  0 10px;
+    text-align: center;
+    display: inline-block;
+    word-break: break-word;
 }

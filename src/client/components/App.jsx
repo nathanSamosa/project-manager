@@ -6,11 +6,13 @@ import { StoreContext, reducer, initialState } from '../utils/store';
 import { API_URL, LOCAL_STORAGE, STORE_ACTIONS } from '../utils/config';
 
 import { Landing } from './Landing';
+import { Nav } from './Nav';
 import { Home } from './Home';
 import { ProjectPage } from './ProjectPage';
+import { Kanban } from './Kanban';
+import { Tickets } from './Tickets';
 
 import '../styles/App.css';
-import logo from '../assets/logo.png'
 
 export const App = () => {
     const navigate = useNavigate();
@@ -26,7 +28,6 @@ export const App = () => {
 
     const fetchProjects = async(token) => {
         const res = await projectFetch(token)
-        console.log("saving projects in state...", res.data)
         handleDispatch(STORE_ACTIONS.PROJECTS, res.data);
     }
 
@@ -45,12 +46,10 @@ export const App = () => {
     }, []);
 
     useEffect(() => {
-        if (refresh) {
-            const token = localStorage.getItem(LOCAL_STORAGE.TOKEN);
-            fetchProjects(token)
-            handleDispatch(STORE_ACTIONS.REFRESH, false);
-        }
-    }, [refresh])
+        const token = localStorage.getItem(LOCAL_STORAGE.TOKEN);
+        fetchProjects(token)
+        if (refresh) handleDispatch(STORE_ACTIONS.REFRESH, false);
+    }, [refresh, user])
 
     const handleLogout = () => {
         localStorage.removeItem(LOCAL_STORAGE.TOKEN);
@@ -58,8 +57,10 @@ export const App = () => {
         navigate(`/`);
     };
 
-    const handleProjectsNav = () => {
-        navigate(`/${user.id}`)
+    const handleProjectsNav = (e) => {
+        handleDispatch(STORE_ACTIONS.SELECTED_PROJECT, null)
+        e === "contact" ? navigate(`/${user.id}/contact`) : navigate(`/${user.id}`)
+        
     }
 
     return (
@@ -67,25 +68,14 @@ export const App = () => {
             <div className="app">
                     {(user && user.id) &&
                         <div className="user-app">
-                            <nav>
-                                <div className="welcome">
-                                    <img src={logo}/>
-                                    <div>
-                                        <h1>Hello,</h1>
-                                        <h1 className="welcome-name">{user.name}</h1>
-                                    </div>
-                                </div>
-                                <div className="user-nav">
-                                    <button onClick={handleLogout}>Log out</button>
-                                    <button onClick={handleProjectsNav}>Projects</button>
-                                    <button>Contact</button>
-                                </div>
-                            </nav>
+                            <Nav handleLogout={handleLogout} handleProjectsNav={handleProjectsNav}/>
 
                             <div className="user-routes">
                                 <Routes>
                                     <Route path="/:userId" element={<Home />} />
                                     <Route path="/:userId/:projectId" element={<ProjectPage />} />
+                                    <Route path="/:userId/:projectId/kanban" element={<Kanban />} />
+                                    <Route path="/:userId/:projectId/tickets" element={<Tickets />} />
                                     <Route path="*" element={<Home />} />
                                 </Routes>
                             </div>

@@ -9,23 +9,18 @@ import '../styles/home.css'
 import '../styles/project-button.css'
 
 export const Home = () => {
-    const [localProjects, setLocalProjects] = useState();
     const navigate = useNavigate();
     const { state } = useContext(StoreContext);
     const { user, projects } = state;
 
-
-
+    const [localProjects, setLocalProjects] = useState();
     useEffect(() => {
         if (projects) setLocalProjects([ ...projects ].reverse())
     }, [projects])
 
     const handleClick = e => {
-        console.log(e.id)
         navigate(`/${user.id}/${e.id}`)
     }
-
-    console.log("state", user, projects)
 
     return (
         <div className="home">

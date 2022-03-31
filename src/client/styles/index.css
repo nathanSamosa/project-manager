@@ -10,20 +10,8 @@
     --clr-secondary: #434458;
     --clr-primary2: #3FA9F5;
     --clr-primary1: #229af0;
-    --clr-red: 255, 0, 0;
-
     --ff-primary: 'Lato';
     --ff-secondary: 'Fira Sans';
-}
-
-.home h2 {
-    padding-top: 5rem;
-    font-size: 3rem;
-    color: rgb(var(--clr-red));
-}
-
-.home h2[data="dim"] {
-    color: rgba(var(--clr-red), 0.5)
 }
 
 * {
