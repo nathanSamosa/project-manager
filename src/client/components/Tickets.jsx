@@ -6,7 +6,7 @@ import { STORE_ACTIONS } from '../utils/config';
 
 import '../styles/project-page.css'
 
-export const ProjectPage = () => {
+export const Tickets = () => {
     const params = useParams();
     const { state, dispatch } = useContext(StoreContext);
     const { projects, selectedProject } = state
@@ -28,7 +28,7 @@ export const ProjectPage = () => {
         <div className="project-page">
             <div className="project-display">
                 {selectedProject &&
-                    <h1>{selectedProject.title} Dashboard</h1>
+                    <h1>{selectedProject.title} Tickets</h1>
                 }
             </div>
         </div>

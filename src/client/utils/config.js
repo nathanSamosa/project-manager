@@ -23,8 +23,10 @@ const LOCAL_STORAGE = {
 
 const STORE_ACTIONS = {
     REFRESH: 'refresh',
+    CURRENT_TAB: 'currentTab',
     USER: 'user',
-    PROJECTS: 'projects'
+    PROJECTS: 'projects',
+    SELECTED_PROJECT: 'selectedProject'
 }
 
 const ROUTES = {
