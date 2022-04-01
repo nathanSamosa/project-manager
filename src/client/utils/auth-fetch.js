@@ -23,6 +23,15 @@ export const projectPost = async (reqBody, token) => {
     return data
 }
 
+export const postItem = async (reqBody, token) => {
+    const fetchOptions = postConfig(reqBody)
+    const response = await fetch(API_URL.ITEM, {
+        ...fetchOptions, headers: { ...fetchOptions.headers,  Authorization: token }
+    })
+    const data = await response.json();
+    return data
+}
+
 const postConfig = (reqBody) => {
     return {
         method: HTTP_METHOD.POST,
@@ -33,7 +42,7 @@ const postConfig = (reqBody) => {
 
 //GET
 
-export const projectFetch = async (token) => {
+export const dataFetch = async (token) => {
     const response = await fetch(API_URL.PROJECT_GET, fetchConfig(token));
     const data = await response.json()
     return data
@@ -60,5 +69,43 @@ export const tokenFetch = async(url, token) => {
         return result
     } catch (error) {
         return error;
+    }
+}
+
+//PUT
+
+export const putItem = async (reqBody, token) => {
+    const fetchOptions = putConfig(reqBody)
+    const response = await fetch(API_URL.ITEM, {
+        ...fetchOptions, headers: { ...fetchOptions.headers,  Authorization: token }
+    })
+    const data = await response.json();
+    return data
+}
+
+const putConfig = (reqBody) => {
+    return {
+        method: HTTP_METHOD.PUT,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(reqBody),
+    }
+}
+
+//DELETE
+
+export const deleteItem = async (reqBody, token) => {
+    const fetchOptions = deleteConfig(reqBody)
+    const response = await fetch(API_URL.ITEM, {
+        ...fetchOptions, headers: { ...fetchOptions.headers,  Authorization: token }
+    })
+    const data = await response.json();
+    return data
+}
+
+const deleteConfig = (reqBody) => {
+    return {
+        method: HTTP_METHOD.DELETE,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(reqBody),
     }
 }

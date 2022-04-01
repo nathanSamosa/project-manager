@@ -1,0 +1,9 @@
+.kanban-display {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 20px;
+}
+
+.kanban-display > * {
+    height: 100%;
+}

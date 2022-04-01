@@ -9,47 +9,53 @@ datasource db {
 }
 
 model User {
-    id          Int         @id @default(autoincrement())
-    name        String      @unique
-    email       String      @unique
+    id          Int             @id @default(autoincrement())
+    name        String          
+    email       String          @unique
     password    String
-    projects     Project[]
-    createdAt   DateTime    @default(now())
-    updatedAt   DateTime    @updatedAt
+    projects    Project[]
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
 }
 
 model Project {
-    id          Int         @id @default(autoincrement())
+    id          Int             @id @default(autoincrement())
     title       String
-    user        User        @relation(fields: [userId], references: [id])
+    user        User            @relation(fields: [userId], references: [id])
     userId      Int
     tickets     Ticket[]
-    kanbans     Kanban[]
-    createdAt   DateTime     @default(now())
-    updatedAt   DateTime     @updatedAt
+    kanban      KanbanColumn[]
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
+}
+
+model KanbanColumn {
+    id          Int             @id @default(autoincrement())
+    project     Project         @relation(fields: [projectId], references: [id])
+    projectId   Int
+    title       String
+    items       KanbanItem[]
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
+}
+
+model KanbanItem {
+    id          Int             @id @default(autoincrement())
+    column      KanbanColumn    @relation(fields: [columnId], references: [id])
+    columnId    Int
+    title       String
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
 }
 
 model Ticket {
-    id          Int         @id @default(autoincrement())
-    project     Project      @relation(fields: [projectId], references: [id])
+    id          Int             @id @default(autoincrement())
+    project     Project         @relation(fields: [projectId], references: [id])
     projectId   Int
-    kanban      Kanban?
     title       String
     description String
     urgency     String
     deadline    DateTime
-    createdAt   DateTime     @default(now())
-    updatedAt   DateTime     @updatedAt
-}
-
-model Kanban {
-    id          Int         @id @default(autoincrement())
-    project     Project     @relation(fields: [projectId], references: [id])
-    projectId   Int
-    ticket      Ticket      @relation(fields: [ticketId], references: [id])
-    ticketId    Int
-    title       String
-    progress    String
-    createdAt   DateTime     @default(now())
-    updatedAt   DateTime     @updatedAt
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
 }

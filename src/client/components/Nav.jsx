@@ -23,8 +23,6 @@ export const Nav = ({handleLogout, handleProjectsNav}) => {
     }
     useEffect(() => console.log("accessing tab", currentTab), [currentTab])
 
-    console.log(selectedProject)
-
     return (
         <nav>
             <div className="welcome">

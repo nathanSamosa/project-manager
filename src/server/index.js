@@ -33,6 +33,9 @@ app.use('/user', userRouter);
 const projectRouter = require('./routers/project');
 app.use('/project', projectRouter);
 
+const kanbanRouter = require('./routers/kanban');
+app.use('/kanban', kanbanRouter);
+
 //ROUTES
 
 app.get('/hello', (req, res) => {
