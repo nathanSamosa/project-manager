@@ -26,21 +26,6 @@ const createUser = async() => {
     return user
 }
 
-// const createProject = async(user) => {
-//     const project = {user}
-//     console.log("createProject", project)
-// }
-
-// const createTickets = async(project) => {
-//     const tickets = {project}
-//     console.log("createTickets", tickets)
-// }
-
-// const createKanban = async(project) => {
-//     const kanban = {project}
-//     console.log("createKanban", kanban)
-// }
-
 seed()
     .catch(async (e) => {
         console.error(e);

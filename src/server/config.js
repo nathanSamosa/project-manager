@@ -15,8 +15,16 @@ const SERVER_STATUS = {
 
 const SECRET = process.env.SECRET;
 
+const DEFAULT_KANABN = [
+    { title: 'Todo' },
+    { title: 'In progress' },
+    { title: 'In review' },
+    { title: 'Completed' },
+]
+
 module.exports = {
     HTTP_RESPONSE,
     SERVER_STATUS,
-    SECRET
+    SECRET,
+    DEFAULT_KANABN
 }

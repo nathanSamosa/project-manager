@@ -7,6 +7,7 @@ const API_URL = {
     USER_REGISTER: `${SERVER_URL}/user/register`,
     PROJECT_GET: `${SERVER_URL}/project/`,
     PROJECT_CREATE: `${SERVER_URL}/project/create`,
+    ITEM: `${SERVER_URL}/kanban/item`,
 };
 
 const HTTP_METHOD = {

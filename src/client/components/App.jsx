@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { tokenFetch, projectFetch } from '../utils/auth-fetch'
+import { tokenFetch, dataFetch } from '../utils/auth-fetch'
 import { StoreContext, reducer, initialState } from '../utils/store';
 import { API_URL, LOCAL_STORAGE, STORE_ACTIONS } from '../utils/config';
 
@@ -27,7 +27,7 @@ export const App = () => {
     };
 
     const fetchProjects = async(token) => {
-        const res = await projectFetch(token)
+        const res = await dataFetch(token)
         handleDispatch(STORE_ACTIONS.PROJECTS, res.data);
     }
 
