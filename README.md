@@ -8,8 +8,8 @@
 
 <br />
 
-![landing page](./public/home.png)
-![home page](./public/landing.png)
+![landing page](./public/landing.png)
+![home page](./public/home.png)
 ![kanban page](./public/kanban.gif)
 
 <br />
