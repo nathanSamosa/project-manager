@@ -28,5 +28,12 @@
 
 ## Installation
 
-`npm install`\
-`npm start`
+`npm install`
+
+create a `.env` file containing:
+- `DATABASE_URL` and `DATABASE_SHADOW` url from your private SQL.
+- `NODE_ENV="development"`
+- `REACT_APP_SERVER_URL=http://localhost:4000`
+- `SECRET=[your-secret]`
+
+run the client and server concurrently with `npm run devstart`
