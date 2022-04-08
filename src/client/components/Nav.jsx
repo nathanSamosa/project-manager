@@ -16,7 +16,6 @@ export const Nav = ({handleLogout, handleProjectsNav}) => {
         if (e.target.name === "logout") handleLogout()
         if (e.target.name === "projects") handleProjectsNav(e.target.name)
         if (e.target.name === "contact") handleProjectsNav(e.target.name)
-        if (e.target.name === "dashboard") navigate(`/${user.id}/${selectedProject.id}`)
         if (e.target.name === "kanban") navigate(`/${user.id}/${selectedProject.id}/kanban`)
         if (e.target.name === "tickets") navigate(`/${user.id}/${selectedProject.id}/tickets`)
         setCurrentTab(e.target.name)
@@ -40,13 +39,6 @@ export const Nav = ({handleLogout, handleProjectsNav}) => {
             {(selectedProject && selectedProject.title) &&
                 <div className="project-title">
                     <h1>{selectedProject.title}</h1>
-                </div>
-            }
-            {(selectedProject && selectedProject.id) &&
-                <div className="project-nav">
-                    <button name="dashboard" onClick={handleClick}>Dashboard</button>
-                    <button name="tickets" onClick={handleClick}>Tickets</button>
-                    <button name="kanban" onClick={handleClick}>Kanban</button>
                 </div>
             }
         </nav>

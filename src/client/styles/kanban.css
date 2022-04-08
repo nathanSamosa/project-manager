@@ -1,7 +1,7 @@
 .kanban-display {
-    display: grid;
-    grid-template-columns: 1fr 250px;
-    gap: 20px;
+    display: grid !important;
+    grid-template-columns: 1fr 325px;
+    gap: 10px;
 }
 
 .kanban-display > * {

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { StoreContext } from '../utils/store';
 import { STORE_ACTIONS } from '../utils/config';
 
-import '../styles/project-page.css'
+
 
 export const ProjectPage = () => {
     const params = useParams();

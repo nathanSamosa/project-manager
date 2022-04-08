@@ -1,47 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import { postItem } from '../utils/auth-fetch'
+
 
 import '../styles/kanban-config.css'
-import { LOCAL_STORAGE } from '../utils/config'
 
+import { KanbanForm } from './KanbanForm'
+import { ItemDetails } from './ItemDetails'
 
+export const KanbanConfig = ({kanban, setFetchKanban, setItemConfig, selectedItem, setSelectedItem}) => {
 
-export const KanbanConfig = ({kanban, setFetchKanban}) => {
-    const initialForm = {
-        title: "",
-        columnId: kanban[0].id
-    }
-    const [form, setForm] = useState(initialForm)
-
-    const handleChange = e => {
-        setForm({...form, [e.target.name]: e.target.value})
-    }
-
-    const handleSubmitItem = async(e) => {
-        e.preventDefault();
-        const res = await postItem(form, localStorage.getItem(LOCAL_STORAGE.TOKEN));
-        res.CODE === 200 ? setFetchKanban(true) : alert("ERROR", res.CODE);
-    }
 
     return (
         <div className="kanban-config">
-            <form onSubmit={handleSubmitItem}>
+            <KanbanForm kanban={kanban} setFetchKanban={setFetchKanban}/>
+            <div className="item-config">
                 <label>
-                    Title:
-                    <input type="text" name="title" value={form.title} onChange={handleChange}></input>
+                    Show priority:
+                    <input name="priority" type="checkbox" onChange={setItemConfig}/>
                 </label>
                 <label>
-                    Category:
-                    <select name="columnId" value={form.columnId} onChange={handleChange}>
-                        {kanban.map(column =>
-                            <option key={column.id} value={column.id}>{column.title}</option>
-                        )}
-                    </select>
+                    Enable delete:
+                    <input name="delete" type="checkbox" onChange={setItemConfig}/>
                 </label>
-                <button type="submit">New item</button>
-            </form>
-            
+            </div>
+            <ItemDetails selectedItem={selectedItem} setSelectedItem={setSelectedItem} setFetchKanban={setFetchKanban}/>
         </div>
     )
 }

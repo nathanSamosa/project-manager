@@ -1,16 +1,35 @@
 .kanban-config {
-    border: 4px solid var(--clr-grey2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+
+    display: grid;
+    grid-template-rows: 285px 100px 1fr;
     gap: 20px;
-    padding: 20px;
 }
 
-.kanban-config form {
+.kanban-config form,
+.kanban-config .item-config {
     width: 100%;
-    height: 200px;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 4px solid var(--clr-grey2);
+}
+
+.kanban-config .item-config {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.kanban-config label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.kanban-config select,
+.kanban-config input {
+    height: 25px;
 }
 
 .kanban-config button {
@@ -23,4 +42,24 @@
 .kanban-config button:hover {
     background: var(--clr-primary1);
     transform: translateY(2px);
+}
+
+.item-details textarea{
+    height: 150px;
+}
+
+.details-button-container {
+    display: flex;
+    gap: 20px;
+    height: 75px;
+}
+
+.item-details .details-button {
+    width: 50%;
+}
+
+.cancel-button {
+    color: var(--clr-grey1);
+    background: white !important;
+    border: 1px solid var(--clr-grey1) !important;
 }

@@ -43,7 +43,10 @@ model KanbanItem {
     id          Int             @id @default(autoincrement())
     column      KanbanColumn    @relation(fields: [columnId], references: [id])
     columnId    Int
+    columnIndex Int
     title       String
+    priority    String
+    details     String
     createdAt   DateTime        @default(now())
     updatedAt   DateTime        @updatedAt
 }

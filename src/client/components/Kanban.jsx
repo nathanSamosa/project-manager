@@ -26,11 +26,24 @@ export const Kanban = () => {
     // State
     const [fetchKanban, setFetchKanban] = useState(false)
     const [kanban, setKanban] = useState()
+    const [selectedItem, setSelectedItem] = useState(null)
+    const [itemConfig, setItemConfig] = useState({
+        priority: false,
+        delete: false
+    })
 
     // Getters
+    const reorderKanban = kanban => {
+        const reorderedKanban = [];
+        [...kanban].forEach(column => {
+            column.items.sort((a, b) => a.columnIndex - b.columnIndex)
+            reorderedKanban.push(column)
+        })
+        return reorderedKanban
+    }
+
     useEffect(async() => {
         if (fetchKanban) {
-            console.log(`${API_URL.PROJECT_GET}${selectedProject.id}`)
             const res = await fetch(`${API_URL.PROJECT_GET}${selectedProject.id}`, {
                 method: 'GET',
                 headers: {
@@ -38,8 +51,8 @@ export const Kanban = () => {
                 }
             })
             const data = await res.json();
-            console.log(data)
-            setKanban(data.data.kanban)
+            const reorderedKanban = reorderKanban(data.data.kanban)
+            setKanban(reorderedKanban)
             setFetchKanban(false)
         }
     }, [fetchKanban])
@@ -49,19 +62,32 @@ export const Kanban = () => {
         const selectedProject = projects.filter(project => project.id === Number(params.projectId))[0];
         handleDispatch(STORE_ACTIONS.SELECTED_PROJECT, selectedProject);
         if (selectedProject) {
-            console.log(selectedProject.id)
             if (!fetchKanban) setFetchKanban(true)
         }
     }, [projects])
-
-    
 
     return (
         <div className="project-page kanban-page">
             {kanban &&
                 <div className="project-display kanban-display">
-                    <KanbanTable kanban={kanban} setKanban={setKanban} setFetchKanban={setFetchKanban}/>
-                    <KanbanConfig kanban={kanban} setFetchKanban={setFetchKanban}/>
+                    <div className="kanban-table-container">
+                        <KanbanTable
+                            kanban={kanban}
+                            setKanban={setKanban}
+                            setFetchKanban={setFetchKanban}
+                            itemConfig={itemConfig}
+                            setSelectedItem={setSelectedItem}
+                        />
+                    </div>
+
+                    <KanbanConfig
+                        kanban={kanban}
+                        setFetchKanban={setFetchKanban}
+                        setItemConfig={e => setItemConfig({...itemConfig, [e.target.name]: !itemConfig[e.target.name]})}
+                        selectedItem={selectedItem}
+                        setSelectedItem={setSelectedItem}
+                    />
+
                 </div>   
             }
         </div>

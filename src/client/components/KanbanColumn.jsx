@@ -3,7 +3,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { KanbanItem } from './KanbanItem';
 
-export const KanbanColumn = ({id, column, setFetchKanban}) => {
+export const KanbanColumn = ({id, column, setFetchKanban, itemConfig, setSelectedItem}) => {
     const attr = (provided, snapshot) => {
         return {
             ...provided.droppableProps,
@@ -22,7 +22,15 @@ export const KanbanColumn = ({id, column, setFetchKanban}) => {
                             {column.items.map((item, index) =>
                                 <Draggable key={item.id} draggableId={`${item.id}`} index={index}>
                                     {(provided, snapshot) =>
-                                        <KanbanItem item={item} provided={provided} snapshot={snapshot} setFetchKanban={setFetchKanban}/>
+                                        <KanbanItem
+                                            item={item}
+                                            provided={provided}
+                                            snapshot={snapshot}
+                                            setFetchKanban={setFetchKanban}
+                                            itemConfig={itemConfig}
+                                            setSelectedItem={setSelectedItem}    
+                                        />
+                                            
                                     }
                                 </Draggable>
                             )}

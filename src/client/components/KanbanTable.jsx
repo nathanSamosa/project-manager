@@ -8,32 +8,37 @@ import { onDragEnd } from '../utils/d-n-d';
 
 import { KanbanColumn } from './KanbanColumn';
 
-export const KanbanTable = ({ kanban, setKanban, setFetchKanban }) => {
-    const handlePut = async(result) => {
-        const itemId = Number(result.draggableId)
-        const destColumnId = kanban[Number(result.destination.droppableId)].id
-        const reqBody = {id: itemId, columnId: destColumnId}
-        console.log(reqBody)
-        const res = await putItem(reqBody, localStorage.getItem(LOCAL_STORAGE.TOKEN));
-        res.CODE === 200 ? setFetchKanban(true) : alert("ERROR", res.CODE);
-        
-        console.log("item", itemId, "columnId", destColumnId)
+export const KanbanTable = ({ kanban, setKanban, setFetchKanban, itemConfig, setSelectedItem }) => {
+    const handlePut = async(newColumns) => {
+
+        const res = await putItem(newColumns, localStorage.getItem(LOCAL_STORAGE.TOKEN));
+        if (res.CODE !== 200) alert("ERROR", res.CODE);
+        console.log("kanban updated", res)
     }
 
     const handleDragEnd = result => {
         const newColumns = onDragEnd(result, kanban)
         if (newColumns) {
             setKanban(newColumns)
-            handlePut(result)
+            handlePut(newColumns)
         }
     }
+
+    console.log(kanban)
  
     return (
         <div className="kanban-table">
             {kanban && 
                 <DragDropContext onDragEnd={handleDragEnd}>
                     {Object.entries(kanban).map(([id, column]) =>
-                        <KanbanColumn key={id} id={id} column={column} setFetchKanban={setFetchKanban}/>
+                        <KanbanColumn
+                            key={id}
+                            id={id}
+                            column={column}
+                            setFetchKanban={setFetchKanban}
+                            itemConfig={itemConfig}
+                            setSelectedItem={setSelectedItem}
+                        />
                     )}
                 </DragDropContext>
             }

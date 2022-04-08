@@ -8,6 +8,7 @@ const API_URL = {
     PROJECT_GET: `${SERVER_URL}/project/`,
     PROJECT_CREATE: `${SERVER_URL}/project/create`,
     ITEM: `${SERVER_URL}/kanban/item`,
+    ITEM_DETAILS: `${SERVER_URL}/kanban/itemDetails`,
 };
 
 const HTTP_METHOD = {
