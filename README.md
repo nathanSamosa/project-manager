@@ -8,20 +8,23 @@
 
 <br />
 
-![pontaneously Nomadic example](./public/assets/footballStats.gif)
+![landing page](./public/home.png)
+![home page](./public/landing.png)
+![kanban page](./public/kanban.gif)
 
 <br />
 
 ## Table of Contents
 
 -   [Objectives](#Objectives)
+-   [Features](#Features)
 -   [Installation](#installation)
 
 ## Objectives
 
--   **integrate oAuth 2.0** using passport.js
--   **integrate google mapping data** using @react-google-maps/api
--   **link to a backend express server and SQL database:** at https://github.com/bravint/spontaneously-nomadic-server
+-   Build an independant full-stack application using **React**, **Node.js**, **Express** and **PostgreSQL**.
+-   Integrate fliud **drag and drop** functionality by updating local and server data simultaneously.
+-   Practice the vue.js _State, Getters, Mutations, Actions_ model within the React.
 
 ## Installation
 
