@@ -8,11 +8,10 @@ import { API_URL, LOCAL_STORAGE, STORE_ACTIONS } from '../utils/config';
 import { Landing } from './Landing';
 import { Nav } from './Nav';
 import { Home } from './Home';
-import { ProjectPage } from './ProjectPage';
 import { Kanban } from './Kanban';
-import { Tickets } from './Tickets';
 
 import '../styles/App.css';
+import '../styles/project-page.css'
 
 export const App = () => {
     const navigate = useNavigate();
@@ -73,9 +72,7 @@ export const App = () => {
                             <div className="user-routes">
                                 <Routes>
                                     <Route path="/:userId" element={<Home />} />
-                                    <Route path="/:userId/:projectId" element={<ProjectPage />} />
-                                    <Route path="/:userId/:projectId/kanban" element={<Kanban />} />
-                                    <Route path="/:userId/:projectId/tickets" element={<Tickets />} />
+                                    <Route path="/:userId/:projectId" element={<Kanban />} />
                                     <Route path="*" element={<Home />} />
                                 </Routes>
                             </div>

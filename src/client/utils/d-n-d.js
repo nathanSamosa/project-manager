@@ -3,6 +3,10 @@ const dropInSameColumn = (columns, source, destination) => {
     const copiedItems = [ ...column.items ];
     const [removed] = copiedItems.splice(source.index, 1);
     copiedItems.splice(destination.index, 0, removed);
+    copiedItems.forEach((item, index) => {
+        item.columnIndex = index
+    })
+    console.log(copiedItems)
     const newColumns = {
         ...columns,
         [source.droppableId]: {
@@ -21,7 +25,14 @@ const dropInDifferentColumn = (columns, source, destination) => {
     const sourceItems = [ ...sourceColumn.items ];
     const destItems = [ ...destColumn.items ];
     const [removed] = sourceItems.splice(source.index, 1);
+    sourceItems.forEach((item, index) => {
+        item.columnIndex = index
+    })
     destItems.splice(destination.index, 0, removed);
+    destItems.forEach((item, index) => {
+        item.columnIndex = index
+        item.columnId = destColumn.id
+    })
     const newColumns = {
         ...columns,
         [source.droppableId]: {

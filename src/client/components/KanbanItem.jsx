@@ -3,17 +3,20 @@ import React, { useState } from 'react';
 import { deleteItem } from '../utils/auth-fetch';
 import { LOCAL_STORAGE } from '../utils/config';
 
-import { BiTrash } from 'react-icons/bi'
+import { BiTrash, BiQuestionMark } from 'react-icons/bi'
 
-export const KanbanItem = ({item, provided, snapshot, setFetchKanban}) => {
+export const KanbanItem = ({item, provided, snapshot, setFetchKanban, itemConfig, setSelectedItem}) => {
+
+
     const attr = {
+        className: `draggable-div kanban-item ${snapshot.isDragging ? "isDragging" : ""}`,
         ...provided.draggableProps,
         ...provided.dragHandleProps,
         ref: provided.innerRef,
         style: {
-            ...provided.draggableProps.style,
-            backgroundColor: snapshot.isDragging ? 'var(--clr-primary1)' : 'var(--clr-primary2)'
-        }
+            ...provided.draggableProps.style
+        },
+        data: itemConfig.priority ? item.priority : "default"
     }
 
     const [allowClick, setAllowClick] = useState(true)
@@ -27,14 +30,18 @@ export const KanbanItem = ({item, provided, snapshot, setFetchKanban}) => {
             setTimeout(() => {
                 setAllowClick(true)
             }, 500)
-        }, 500)
-        
+        }, 500)  
     }
 
     return (
-        <div className="draggable-div kanban-item" {...attr}>
+        <div {...attr} >
             {item.title}
-            <BiTrash className="kanban-item-trash" onClick={() => handleClick(item.id)}/>
+            <div className="action-container">
+                <BiQuestionMark className="kanban-item-trash" onClick={() => setSelectedItem(item)}/>
+                {itemConfig.delete &&
+                    <BiTrash className="kanban-item-trash" onClick={() => handleClick(item.id)}/>
+                }
+            </div>
         </div>
     )
 }

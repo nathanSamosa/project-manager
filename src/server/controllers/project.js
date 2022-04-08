@@ -53,8 +53,34 @@ const getSingleProject = async (req, res) => {
     return res.json({ data: project })
 }
 
+const deleteProject = async (req, res) => {
+    const { id } = req.body
+    console.log(id)
+
+    const items = await prisma.kanbanItem.deleteMany({
+        where: {
+            column: {
+                    projectId: Number(id)
+                
+            }
+        },
+    })
+    const columns = await prisma.kanbanColumn.deleteMany({
+        where: {
+            projectId: Number(id)
+        },
+    })
+    const project = await prisma.project.delete({
+        where: {
+            id: Number(id)
+        }
+    })
+    return (project && columns && items) ? res.json(HTTP_RESPONSE.OK) : res.json(HTTP_RESPONSE.UNAUTHORIZED)
+}
+
 module.exports = {
     createProject,
     getProjectById,
-    getSingleProject
+    getSingleProject,
+    deleteProject
 };

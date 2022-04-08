@@ -43,7 +43,8 @@ export const Register = ({ currentForm, setCurrentForm }) => {
         localStorage.setItem(LOCAL_STORAGE.TOKEN, result.token);
         handleDispatch(STORE_ACTIONS.USER, result.data.name);
 
-        navigate(`/${result.data.name.toLowerCase()}`);
+        navigate(`/${result.data.id}`);
+        location.reload()
     };
 
     const handleX = () => setCurrentForm('');

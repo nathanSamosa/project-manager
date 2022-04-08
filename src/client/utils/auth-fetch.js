@@ -83,6 +83,15 @@ export const putItem = async (reqBody, token) => {
     return data
 }
 
+export const putItemDetails = async (reqBody, token) => {
+    const fetchOptions = putConfig(reqBody)
+    const response = await fetch(API_URL.ITEM_DETAILS, {
+        ...fetchOptions, headers: { ...fetchOptions.headers,  Authorization: token }
+    })
+    const data = await response.json();
+    return data
+} 
+
 const putConfig = (reqBody) => {
     return {
         method: HTTP_METHOD.PUT,
@@ -96,6 +105,15 @@ const putConfig = (reqBody) => {
 export const deleteItem = async (reqBody, token) => {
     const fetchOptions = deleteConfig(reqBody)
     const response = await fetch(API_URL.ITEM, {
+        ...fetchOptions, headers: { ...fetchOptions.headers,  Authorization: token }
+    })
+    const data = await response.json();
+    return data
+}
+
+export const deleteProject = async (reqBody, token) => {
+    const fetchOptions = deleteConfig({ id: reqBody })
+    const response = await fetch(API_URL.PROJECT_GET, {
         ...fetchOptions, headers: { ...fetchOptions.headers,  Authorization: token }
     })
     const data = await response.json();

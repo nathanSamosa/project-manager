@@ -2,6 +2,11 @@
     display: flex;
     justify-content: center;
     height: 100%;
+    min-width: 1000px;
+}
+
+.kanban-table-container {
+    overflow-x: scroll;
 }
 
 .kanban-column {
@@ -37,8 +42,6 @@
     width: 100%;
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 20px;
-    gap: 20px;
     height: fit-content;
     overflow: visible;
     color: white;
@@ -51,4 +54,35 @@
 
 .kanban-item-trash:hover {
     cursor: pointer;
+}
+
+.action-container {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    height: 20px;
+}
+
+.draggable-div[data="default"] {
+    background-color: var(--clr-primary2);
+}
+
+.draggable-div[data="low"] {
+    background-color: rgba(140, 175, 180, var(--lightness, 1));
+}
+
+.draggable-div[data="normal"] {
+    background-color: rgba(150, 230, 65, var(--lightness, 1));;
+}
+
+.draggable-div[data="high"] {
+    background-color: rgba(245, 205, 51, var(--lightness, 1));;
+}
+
+.draggable-div[data="urgent"] {
+    background-color: rgba(230, 81, 31, var(--lightness, 1));;
+}
+
+.isDragging {
+    --lightness: 0.5
 }
