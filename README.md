@@ -29,6 +29,9 @@
 
 ## Next steps
 
+-  Adjust colour scheme for a more professional look and a more intuitive display of data
+-  Clean up schema and backend to remove redundant controllers and models
+
 ## Installation
 
 `npm install`
