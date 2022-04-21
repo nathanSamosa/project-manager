@@ -6,13 +6,13 @@
 
 ## Preview
 
+<p align="center">Development:</p>
 <div display="flex">
 <img src="./public/fluid.png" alt="development UX" width="500px"/>
 <img src="./public/ERD.png" alt="development ERD" width="500px"/>
 </div>
 
-<br />
-
+<p align="center">Live:</p>
 <img src="./public/landing.png" alt="landing page" width="1000px"/>
 <img src="./public/home.png" alt="home page" width="1000px"/>
 <img src="./public/kanban.gif" alt="kanban page" width="1000px"/>
