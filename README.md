@@ -18,7 +18,7 @@
 
 -   [Objectives](#Objectives)
 -   [Features](#Features)
--   [Next steps...](#Next Steps...)
+-   [Next steps](#Next steps)
 -   [Installation](#installation)
 
 ## Objectives
@@ -27,7 +27,7 @@
 -   Integrate fliud **drag and drop** functionality by updating local and server data simultaneously.
 -   Practice the vue.js _State, Getters, Mutations, Actions_ model within the React.
 
-## Next steps...
+## Next steps
 
 ## Installation
 
