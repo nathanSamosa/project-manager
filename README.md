@@ -6,9 +6,9 @@
 
 ## Development Preview
 
-<div display="flex">
-<img src="./public/fluid.png" alt="development UX" width="500px"/>
-<img src="./public/ERD.png" alt="development ERD" width="500px"/>
+<div display="flex" align="center">
+<img src="./public/fluid.png" alt="development UX" width="400px"/>
+<img src="./public/ERD.png" alt="development ERD" width="400px"/>
 </div>
 
 ## Live Preview
