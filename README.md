@@ -4,15 +4,15 @@
   <strong>An in-browser appliation that provides tools to manage and track the progress of personal projects</strong>
 </div>
 
-## Preview
+## Development Preview
 
-<p align="center">Development:</p>
 <div display="flex">
 <img src="./public/fluid.png" alt="development UX" width="500px"/>
 <img src="./public/ERD.png" alt="development ERD" width="500px"/>
 </div>
 
-<p align="center">Live:</p>
+## Live Preview
+
 <img src="./public/landing.png" alt="landing page" width="1000px"/>
 <img src="./public/home.png" alt="home page" width="1000px"/>
 <img src="./public/kanban.gif" alt="kanban page" width="1000px"/>
