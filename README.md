@@ -18,6 +18,7 @@
 
 -   [Objectives](#Objectives)
 -   [Features](#Features)
+-   [Next steps...](#Next Steps...)
 -   [Installation](#installation)
 
 ## Objectives
@@ -25,6 +26,8 @@
 -   Build an independant full-stack application using **React**, **Node.js**, **Express** and **PostgreSQL**.
 -   Integrate fliud **drag and drop** functionality by updating local and server data simultaneously.
 -   Practice the vue.js _State, Getters, Mutations, Actions_ model within the React.
+
+## Next steps...
 
 ## Installation
 
