@@ -6,6 +6,8 @@
 
 ## Preview
 
+<img src="./public/fluidUI.png" alt="development UX" width="1000px"/>
+
 <br />
 
 <img src="./public/landing.png" alt="landing page" width="1000px"/>
