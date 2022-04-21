@@ -13,9 +13,11 @@
 
 <h2 align="center">Live Preview</h2>
 
-<img src="./public/landing.png" alt="landing page" width="1000px"/>
-<img src="./public/home.png" alt="home page" width="1000px"/>
-<img src="./public/kanban.gif" alt="kanban page" width="1000px"/>
+<div align="center">
+<img src="./public/landing.png" alt="landing page" width="800px"/>
+<img src="./public/home.png" alt="home page" width="800px"/>
+<img src="./public/kanban.gif" alt="kanban page" width="800px"/>
+</div>
 
 <br />
 
