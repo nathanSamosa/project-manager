@@ -4,14 +4,14 @@
   <strong>An in-browser appliation that provides tools to manage and track the progress of personal projects</strong>
 </div>
 
-## Development Preview
+<h2 align="center">Development Preview</h2>
 
 <div display="flex" align="center">
 <img src="./public/fluid.png" alt="development UX" width="400px"/>
 <img src="./public/ERD.png" alt="development ERD" width="400px"/>
 </div>
 
-## Live Preview
+<h2 align="center">Live Preview</h2>
 
 <img src="./public/landing.png" alt="landing page" width="1000px"/>
 <img src="./public/home.png" alt="home page" width="1000px"/>
