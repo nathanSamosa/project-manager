@@ -8,9 +8,9 @@
 
 <br />
 
-![landing page](./public/landing.png)
-![home page](./public/home.png)
-![kanban page](./public/kanban.gif)
+<div width="250px">![landing page](./public/landing.png)</div>
+<div width="250px">![home page](./public/home.png)</div>
+<div width="250px">![kanban page](./public/kanban.gif)</div>
 
 <br />
 
