@@ -6,8 +6,10 @@
 
 ## Preview
 
-<img src="./public/fluidUI.png" alt="development UX" width="1000px"/>
-<img src="./public/ERD.png" alt="development ERD" width="1000px"/>
+<div display="flex">
+<img src="./public/fluidUI.png" alt="development UX" width="500px"/>
+<img src="./public/ERD.png" alt="development ERD" width="500px"/>
+</div>
 
 <br />
 
