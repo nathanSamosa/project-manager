@@ -8,10 +8,9 @@
 
 <br />
 
-<img src="./public/landing.png" alt="landing page" width="250px"/>
-![landing page](./public/landing.png)
-![home page](./public/home.png)
-![kanban page](./public/kanban.gif)
+<img src="./public/landing.png" alt="landing page" width="1000px"/>
+<img src="./public/home.png" alt="home page" width="1000px"/>
+<img src="./public/kanban.gif" alt="kanban page" width="1000px"/>
 
 <br />
 
