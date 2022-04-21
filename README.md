@@ -18,7 +18,7 @@
 
 -   [Objectives](#Objectives)
 -   [Features](#Features)
--   [Next steps](#Next steps)
+-   [Next steps](#Next)
 -   [Installation](#installation)
 
 ## Objectives
